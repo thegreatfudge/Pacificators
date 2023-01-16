@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "AIController.h"
+#include <BehaviorTree/BehaviorTreeTypes.h>
 #include "PacificatorAIController.generated.h"
 
 /**
@@ -14,4 +15,15 @@ class RUNFROMCAMERA_API APacificatorAIController : public AAIController
 {
 	GENERATED_BODY()
 	
+	virtual void Tick(float DeltaTime) override;
+
+public:
+
+	APacificatorAIController();
+
+	UPROPERTY(EditAnywhere)
+	FBlackboardKeySelector BlackboardKey;
+
+private:
+	float CameraTurnRate = 3.0f;
 };
